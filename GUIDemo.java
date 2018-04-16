@@ -29,9 +29,11 @@ public class GUIDemo extends JFrame
         smallerButton = new JButton("SMALLER");
         biggerButton.addActionListener(new ButtonHandler());
         smallerButton.addActionListener(new ButtonHandler());
+        otherButton.addActionListener(new ButtonHandler());
         add(panel);
         panel.add(biggerButton);
         panel.add(smallerButton);
+        panel.add(otherButton);
         setVisible(true);
     }
 
@@ -53,9 +55,12 @@ public class GUIDemo extends JFrame
             {
                 setSize(size.width + 10, size.height + 10);
             }
-            else
+            else if (e.getSource().equals(smallerButton))
             {
                 setSize(size.width - 10, size.height - 10);
+            }
+            else {
+                setSize(60, 60);            
             }
 
         }
